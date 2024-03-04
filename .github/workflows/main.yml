@@ -1,11 +1,24 @@
 name: itvlist
 
 on:
-  schedule:
-    - cron: '0 9,21 * * *'
+
   push:
-    branches:
-      - main
+
+  schedule:
+
+   - cron: '0 2,11 * * *'
+
+  workflow_dispatch:
+
+   inputs:
+
+    input:
+
+      description: "Test"
+
+      required: true
+
+      default: "run" 
 
 jobs:
   build:
@@ -37,8 +50,8 @@ jobs:
         
       - name: 提交更改
         run: |
-          git config --local user.email "ssili@126.com"
-          git config --local user.name "ssili126"
+          git config --local user.email "529442986@qq.com"
+          git config --local user.name "tianshideyou"
           git add .
           git commit *.txt -m "Add generated file"
           git commit *.m3u -m "Add generated file"
