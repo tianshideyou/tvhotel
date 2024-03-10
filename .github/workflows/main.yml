@@ -10,15 +10,6 @@ on:
 
   workflow_dispatch:
 
-   inputs:
-
-    input:
-
-      description: "Test"
-
-      required: true
-
-      default: "run" 
 
 jobs:
   build:
