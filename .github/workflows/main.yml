@@ -43,8 +43,13 @@ jobs:
         run: |
           git config --local user.email "529442986@qq.com"
           git config --local user.name "tianshideyou"
-          git add .
-          git commit *.txt -m "Add generated file"
-          git commit *.m3u -m "Add generated file"
-          #git pull --rebase
-          git push -f
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit *.txt -m "Add generated file"
+            git commit *.m3u -m "Add generated file"
+            #git pull --rebase
+            git push -f
+          else
+            echo "No changes detected, skipping commit."
+          fi
+
